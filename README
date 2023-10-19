@@ -1,0 +1,5 @@
+Comando para baixar a imagem
+docker push thadeubatista/fullcycle:tagname
+
+Link para o repositório
+https://hub.docker.com/repository/docker/thadeubatista/fullcycle/general
