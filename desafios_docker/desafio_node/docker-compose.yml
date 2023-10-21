@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  node:
+    build: 
+      context: ./app/
+      dockerfile: Dockerfile.node
+    container_name: node
+    networks:
+      - laranet
+    tty: true
+    depends_on:
+      - db
+    command: ./wait-for-it.sh a node index.js
+
+  nginx:
+    build: 
+      context: ./app
+      dockerfile: Dockerfile.nginx
+    container_name: nginx
+    networks:
+      - laranet
+    ports:
+      - 8080:80
+    depends_on:
+      - node
+  db:
+    build: 
+      context: .
+      dockerfile: Dockerfile.mysql
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - laranet
+
+networks:
+  laranet:
+    driver: bridge

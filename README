@@ -1,5 +1,15 @@
+# :hammer: Desafios docker
+
+<h2>Dsafio Go.</h2>
+Entre na pasta fullcycle/desafios_docker/desafiogo
+
 Comando para baixar a imagem
 docker push thadeubatista/fullcycle:tagname
 
 Link para o repositório
 https://hub.docker.com/repository/docker/thadeubatista/fullcycle/general
+
+
+<h2>Desafio node nginx</h2>
+Entre na pasta fullcycle/desafios_docker/desafio_node
+Abra o terminal e digite o comando docker compose up

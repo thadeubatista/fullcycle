@@ -1,0 +1,8 @@
+FROM mysql:5.7
+
+# Variáveis de ambiente para configuração do MySQL
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=nodedb
+
+# Copie um script SQL para o diretório docker-entrypoint-initdb.d
+COPY ./script.sql /docker-entrypoint-initdb.d/
