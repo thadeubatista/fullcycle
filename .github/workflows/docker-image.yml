@@ -16,3 +16,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Start containers
       run: docker-compose -f "./desafios_docker/desafio_node/docker-compose.yml" up -d --build
+    - name: test url
+      run: curl http://localhost:8080
