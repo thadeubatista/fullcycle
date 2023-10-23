@@ -1,0 +1,23 @@
+FROM node:21
+
+WORKDIR /usr/src/app
+RUN chown -R node:node /usr/src/app
+
+#COPY index.js .
+#COPY package.json .
+#COPY wait-for-it.sh .
+
+
+
+#RUN npm install mysql --save
+
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+
+RUN apt-get update && apt-get install netcat -y
+
+RUN npm install -g npm@10.2.1
+
+RUN npm cache clean --force 
+
+EXPOSE 3000
+

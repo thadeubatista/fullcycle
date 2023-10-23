@@ -2,8 +2,12 @@
 #mostra todos os comandos executados
 set -x
 
-shift
-cmd="$@"
+#shift
+cmd1=$1
+cmd2=$2
+
+echo "valor variável cmd1 = $1"
+echo "valor variável cmd2 = $2"
 
 until nc -z -v -w30 db 3306
 do
@@ -12,4 +16,5 @@ do
   sleep 5
 done
 
-exec $cmd
+$cmd1
+exec $cmd2
